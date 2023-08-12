@@ -9,6 +9,8 @@ import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 
+import java.util.Objects;
+
 
 public class MetalDetectorItem extends Item {
     // Este item detecta metais 20 blocos abaixo dele
@@ -21,13 +23,11 @@ public class MetalDetectorItem extends Item {
         if (!context.getWorld().isClient()) {
             BlockPos positionClicked = context.getBlockPos();
             PlayerEntity player = context.getPlayer();
+            assert player != null;
 
             for (int i = 0; i <= 20; i++) {
                 BlockPos positionClickedDown = positionClicked.down(i);
-                player.sendMessage(Text.literal(String.valueOf(positionClickedDown)), false);
-
                 BlockState state = context.getWorld().getBlockState(positionClickedDown);
-                player.sendMessage(Text.literal(String.valueOf(state)), false);
 
                 if (isMetalOreBlock(state)) {
                     outputMetalOreDetection(player);
@@ -38,7 +38,7 @@ public class MetalDetectorItem extends Item {
 
         context.getStack().damage(
             1,
-            context.getPlayer(),
+                Objects.requireNonNull(context.getPlayer()),
             playerEntity -> playerEntity.sendToolBreakStatus(playerEntity.getActiveHand())
         );
 
