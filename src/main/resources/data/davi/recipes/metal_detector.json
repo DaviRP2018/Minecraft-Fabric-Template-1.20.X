@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "G": {
+      "item": "minecraft:golden_shovel"
+    },
+    "M": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "RM ",
+    "MR ",
+    "  G"
+  ],
+  "result": {
+    "item": "davi:metal_detector"
+  },
+  "show_notification": true
+}
