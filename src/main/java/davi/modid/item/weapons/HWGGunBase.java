@@ -1,6 +1,8 @@
 package davi.modid.item.weapons;
 
 
+import mod.azure.azurelib.AzureLibMod;
+import mod.azure.azurelib.entities.TickingLightEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
@@ -71,7 +73,7 @@ public class HWGGunBase extends Item {
             lightBlockPos = findFreeSpace(entity.getWorld(), entity.getBlockPos(), 2);
             if (lightBlockPos == null)
                 return;
-            entity.getWorld().setBlockState(lightBlockPos, AzureLibMod.TICKING_LIGHT_BLOCK.defaultBlockState());
+            entity.getWorld().setBlockState(lightBlockPos, AzureLibMod.TICKING_LIGHT_BLOCK.getDefaultState());
         } else if (checkDistance(lightBlockPos, entity.getBlockPos(), 2)) {
             var blockEntity = entity.getWorld().getBlockEntity(lightBlockPos);
             if (blockEntity instanceof TickingLightEntity)
