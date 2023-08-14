@@ -1,0 +1,10 @@
+- https://www.youtube.com/watch?v=0Pr_iHlVKsI&list=PLKGarocXCE1EO43Dlf5JGh7Yk-kRAXUEJ&index=1
+- Wait to build
+- Check on Settings building if SDK versions are fine
+- Create a MOD_ID var
+- Update fabric.mod.json
+- Update gradle.properties
+- Build new gradle
+- ./gradlew genSources
+- Change Minecraft source code
+- Open gradle tab > fabric > runClient
